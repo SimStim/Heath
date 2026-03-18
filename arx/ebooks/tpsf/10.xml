@@ -1,0 +1,38 @@
+<lea:title>The Pitch Science Fiction 1Q2026</lea:title>
+<lea:author>Eduard Pech</lea:author>
+<lea:date created="February 15, 2026">February 24, 2026</lea:date>
+<lea:description>The Pitch Science Fiction is a quarterly publication of science fiction stories by various authors, covering diverse themes.
+Included in this issue:
+<lea:script skip="About">Table Of Contents Plain</lea:script></lea:description>
+<lea:collection type="series" position="10" issn="2806-4240">The Pitch Science Fiction</lea:collection>
+<lea:publisher contact="originals@logophilia.eu">Logophilia</lea:publisher>
+<lea:rights>All stories are in the public domain in the USA. All content not marked public domain are (C) 2026 by Eduard Pech. The complete edition is (C) 2026 by Logophilia. Logophilia is an imprint of Logophilia OÜ.</lea:rights>
+<lea:language>en</lea:language>
+<lea:subfolder tag="epub">tpsf</lea:subfolder>
+<lea:subfolder tag="text">tpsf</lea:subfolder>
+<lea:subfolder tag="images">tpsf-10</lea:subfolder>
+<lea:option value="[illustration is in the public domain]">defaultcaption</lea:option>
+<lea:text>Preface by the Editor 2026Q1.xhtml</lea:text>
+<lea:text>About the Content.xhtml</lea:text>
+<lea:text>Accept No Substitutes by Robert Sheckley.xhtml</lea:text>
+<lea:text>The Misplaced Battleship by Harry Harrison.xhtml</lea:text>
+<lea:text>And the Gods Laughed by Fredric Brown.xhtml</lea:text>
+<lea:text>The Ego Machine by Henry Kuttner.xhtml</lea:text>
+<lea:text>The Call from Beyond by Clifford D. Simak.xhtml</lea:text>
+<lea:text>Star Ship by Poul Anderson.xhtml</lea:text>
+<lea:text>The Creatures That Time Forgot by Ray Bradbury.xhtml</lea:text>
+<lea:text>Masters of Space by E. E. Smith and E. Everett Evans.xhtml</lea:text>
+<lea:text>Old Rambling House by Frank Herbert.xhtml</lea:text>
+<lea:text>Piper in the Woods by Philip K. Dick.xhtml</lea:text>
+<lea:text>Requiem by Edmond Hamilton.xhtml</lea:text>
+<lea:text>About the Authors.xhtml</lea:text>
+<lea:text>About this Publication.xhtml</lea:text>
+<lea:text>About the Publisher.xhtml</lea:text>
+<lea:isbn>978-9908-9726-4-0</lea:isbn>
+<lea:contributor roles="edt bkp bkd tyg mrk pfr cov ill art blw">Eduard Pech</lea:contributor>
+<lea:font>Comfortaa-Bold.ttf</lea:font>
+<lea:font>EBGaramond-Italic-VariableFont_wght.ttf</lea:font>
+<lea:font>EBGaramond-VariableFont_wght.ttf</lea:font>
+<lea:stylesheet>stylesheet.css</lea:stylesheet>
+<lea:stylesheet>fonts.css</lea:stylesheet>
+<lea:cover>2026Q1-cover-epub-inside.jpg</lea:cover>

@@ -1,0 +1,228 @@
+Lea Grammar
+
+<lea:title>
+
+count = 1
+format = string (resolved via textContent; inline markup is stripped)
+
+<lea:author>
+
+count > 0
+format = string (resolved via textContent; inline markup is stripped)
+
+attribute "file-as"
+
+count = [0, 1]
+format = string
+
+<lea:date>
+
+count = 1
+format = anything DateTime understands
+
+attribute "created"
+
+- count = [0, 1]
+- format: anything DateTime understands
+
+<lea:description>
+
+count >= 0
+format = string (resolved via textContent; inline markup is stripped)
+
+<lea:collection>
+
+count = [0, 1]
+format = string (resolved via textContent; inline markup is stripped)
+
+attribute "type"
+
+- count = 1
+- content = "series"
+
+attribute "position"
+
+- count = 1
+- format = integer
+
+attribute "issn"
+
+- count = 1
+- format = string
+
+<lea:publisher>
+
+count = 1
+format = string (resolved via textContent; inline markup is stripped)
+
+attribute "contact"
+
+- count = 1
+- format = string
+
+<lea:rights>
+
+- count = 1
+- format = innerHTML
+
+<lea:language>
+
+count = 1
+format = string (resolved via textContent; inline markup is stripped)
+
+<lea:subfolder>
+
+count >= 0
+format = string (resolved via textContent; inline markup is stripped)
+
+attribute "tag"
+
+- count = 1
+- format = ["epub", "text", "images"]
+
+<lea:option>
+
+count >= 0
+format = string (resolved via textContent; inline markup is stripped)
+
+attribute "value"
+
+- count = 1
+- format = string
+
+<lea:text>
+
+count > 0
+format = string (resolved via textContent; inline markup is stripped)
+
+<lea:subject>
+
+count >= 0
+format = string (resolved via textContent; inline markup is stripped)
+
+<lea:isbn>
+
+count = 1
+format = valid ISBN ("/^\d{13}$/", and checksum is also checked)
+
+<lea:contributor>
+
+count >= 0
+format = string (resolved via textContent; inline markup is stripped)
+
+attribute "roles"
+
+count = 1
+format = string
+
+<lea:font>
+
+count >= 0
+format = string (resolved via textContent; inline markup is stripped)
+
+<lea:stylesheet>
+
+count >= 0
+format = string (resolved via textContent; inline markup is stripped)
+
+<lea:cover>
+
+count = 1
+format = string (resolved via textContent; inline markup is stripped)
+
+<lea:image>
+
+count >= 0
+format = string (resolved via textContent; inline markup is stripped)
+
+attribute "folder"
+
+- count = [0, 1]
+- format = string
+
+attribute "source"
+
+- count = 1
+- format = string
+
+child "caption"
+
+count = [0, 1]
+format = immerHTML
+
+<lea:blurb>
+
+count = [0, 1]
+format = innerHTML
+
+<lea:link>
+
+count >= 0
+format = string (resolved via textContent; inline markup is stripped)
+
+attribute "to"
+
+count = [0, 1]
+format = string
+
+<lea:target>
+
+count >= 0
+format = string (resolved via textContent; inline markup is stripped)
+
+<lea:section>
+
+count >= 0
+format = string (resolved via textContent; inline markup is stripped)
+
+attribute "title"
+
+count = [0, 1]
+format = string
+
+attribute "class"
+
+count = [0, 1]
+format = string
+
+<lea:chapter>
+
+count >= 0
+format = string (resolved via textContent; inline markup is stripped)
+
+attribute "title"
+
+count = [0, 1]
+format = string
+
+attribute "content-top"
+
+count = [0, 1]
+format = string
+
+attribute "class-top"
+
+count = [0, 1]
+format = string
+
+attribute "class-bottom"
+
+count = [0, 1]
+format = string
+
+<lea:block>
+
+count >= 0
+format = string (resolved via textContent; inline markup is stripped)
+
+attribute "folder"
+
+count = [0, 1]
+format = string
+
+<lea:script>
+
+This is an extensibility hook.
+DOMElement->textContent identifies the runtime script handler.
+Attributes are free-form key/value pairs consumed by that handler.
+Formal attribute requirements are defined per-script on AlphabetSt, not in core grammar.

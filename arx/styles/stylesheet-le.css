@@ -1,0 +1,253 @@
+html, body, section, div, h1, h2, h3, h4, h5, h6, p, blockquote, a, img, sub, sup, aside, figure, figcaption {
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 1em;
+    vertical-align: baseline;
+    line-height: 140%;
+    text-align: justify;
+    text-justify: auto;
+    text-indent: 0;
+    orphans: 2;
+    widows: 2;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    -epub-hyphens: none
+}
+
+html, p, figcaption {
+    font-family: serif;
+}
+
+sup {
+    color: inherit;
+    font-size: 80%;
+    vertical-align: top;
+    line-height: 1;
+}
+
+sub {
+    color: inherit;
+    font-size: 80%;
+    vertical-align: bottom;
+    line-height: 1;
+}
+
+.heading {
+    text-align: center;
+    page-break-after: avoid;
+    break-after: avoid;
+    margin-inline: auto;
+    padding: 0 1em;
+    width: fit-content;
+}
+
+.break-before {
+    page-break-before: always; /* old syntax */
+    break-before: page; /* new syntax */
+    display: block; /* prevent rendering skip */
+}
+
+.break-inside-avoid {
+    page-break-inside: avoid;
+    break-inside: avoid;
+}
+
+.nobreak {
+    white-space: nowrap;
+}
+
+blockquote {
+    margin-block: 1em;
+    margin-inline: 2.4em 0;
+}
+
+.no-indent {
+    text-indent: 0;
+}
+
+.inline-spacer {
+    display: inline-block;
+    width: 2ch; /* or 4ch, 2em etc. */
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.hr {
+    margin: 0.3em auto 0em;
+    padding-top: 0.7em;
+    border-top: 0.1em solid hsl(20, 47%, 56%);
+}
+
+em em, em em em em {
+    font-style: normal
+}
+
+em, em em em, em em em em em {
+    font-style: italic
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: sans-serif;
+    page-break-after: avoid;
+    break-after: avoid;
+    text-indent: 0;
+}
+
+h1 {
+    color: #0B486B;
+    font-size: 2.1em;
+    font-weight: 700;
+    line-height: 210%;
+    margin: 2.1em 0 0.8em;
+    -epub-hyphens: none
+}
+
+h2 {
+    color: #C44D58;
+    font-size: 1.7em;
+    font-weight: 700;
+    line-height: 170%;
+    margin: 1.7em 0 0.68em;
+    -epub-hyphens: none
+}
+
+h3 {
+    color: #158466;
+    font-size: 1.4em;
+    font-weight: 700;
+    line-height: 140%;
+    margin: 1.4em 0 0.56em;
+    -epub-hyphens: none
+}
+
+h4 {
+    font-size: 1.2em;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 1.2em 0 0.48em;
+}
+
+h5 {
+    font-size: 1.1em;
+    font-weight: 700;
+    line-height: 110%;
+    margin: 1.1em 0 0.44em;
+}
+
+h6 {
+    font-size: 1.0em;
+    font-weight: 700;
+    line-height: 100%;
+    margin: 1.0em 0 0.4em;
+}
+
+a {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    text-align: inherit;
+    color: #0B486B;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+h1 a {
+    color: #0B486B;
+}
+
+h2 a {
+    color: #C44D58;
+}
+
+h3 a {
+    color: #158466;
+}
+
+.heading a {
+    color: inherit;
+}
+
+img {
+    width: 80%; /* force fill container width up to 80 % */
+    height: auto; /* preserve aspect ratio */
+    max-height: 40em; /* Fallback: in case vh is ignored */
+    max-height: 50vh; /* limit height to 50% of viewport height */
+    display: block; /* avoid inline spacing */
+    margin: 0 auto; /* center if smaller */
+    object-fit: contain; /* usually ignored here */
+}
+
+figure {
+    padding: 1em 0 0;
+    margin: 1em auto; /* center if smaller */
+    break-inside: avoid;
+    page-break-inside: avoid;
+    -webkit-column-break-inside: avoid; /* For WebKit-based engines */
+}
+
+figcaption {
+    width: 80%; /* force fill container width up to 80 % */
+    height: auto; /* preserve aspect ratio */
+    display: block; /* avoid inline spacing */
+    margin: 0 auto; /* center if smaller */
+    object-fit: contain; /* usually ignored here */
+    font-size: 80%;
+    font-style: italic;
+    text-align: center
+}
+
+p {
+    page-break-before: avoid;
+    break-before: avoid;
+    line-height: 140%;
+    margin: 1em 1em;
+    -epub-hyphens: none
+}
+
+p + p, div + p, figure + p, blockquote + p {
+    text-indent: 1.2em;
+}
+
+.heading + p, .heading + figure + p, .heading + div + p,
+.asterism + p, .asterism + figure + p, .asterism + div + p,
+.break-before + p, .break-before + figure + p, .break-before + div + p {
+    text-indent: 0;
+}
+
+.qhennthyk, .qhennthyk > p {
+    font-family: monospace;
+    text-align: left;
+}
+
+.runic {
+    font-family: sans-serif;
+}
+
+.text-smallcaps {
+    font-variant: small-caps
+}
+
+.asterism {
+    height: 1.25em;
+    margin: 0;
+    border: none;
+    background: transparent url("star-copper.png") no-repeat center;
+    background-size: 1.25em 1.25em;
+    overflow: hidden;
+}
+
+.section, .level1, .unnumbered {
+    /* No styling — structural only */
+}
