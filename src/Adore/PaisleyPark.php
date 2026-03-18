@@ -60,7 +60,6 @@ final class PaisleyPark
      */
     public function segue(): void
     {
-        echo "SEARCHING" . PHP_EOL;
         /**
          * Checks if the ebook config file has been read successfully.
          * - No = fatal
@@ -70,7 +69,6 @@ final class PaisleyPark
                 Girlfriend::$pathEbooks . $this->ebook->fileName);
             return;
         }
-        echo "FOUND" . PHP_EOL;
         /**
          * Checks if the ebook config file is well-formed.
          * - No = fatal
@@ -80,7 +78,6 @@ final class PaisleyPark
                 Girlfriend::$pathEbooks . $this->ebook->fileName);
             return;
         }
-        echo "LOADING" . PHP_EOL;
         XMLetsGoCrazy::extractSubFolder($this->ebook);
         XMLetsGoCrazy::extractOptions($this->ebook->xpath);
         XMLetsGoCrazy::executeLeaScriptTags($this->ebook, $this->alphabetSt, ebook: $this->ebook);
@@ -462,13 +459,6 @@ final class PaisleyPark
             if ($name !== Girlfriend::comeToMe()->leaNamePlain)
                 $this->ebook->addAuthor(new Author(name: $name, fileAs: $fileAs));
         /**
-         * If the user requested to check external links, do it now.
-         */
-        if (Girlfriend::comeToMe()->recall(name: "check-urls") === "yes")
-            $this->validateURLs();
-        else
-            Girlfriend::comeToMe()->makeDoveCry($this->ebook, "urlsNotChecked", $this->ebook->fileName);
-        /**
          * At this point, we want to resolve any links in the text content.
          */
         $targetData = [];
@@ -494,11 +484,6 @@ final class PaisleyPark
             XMLetsGoCrazy::replaceLeaTargetTags($text);
             XMLetsGoCrazy::replaceLeaLinkTags($text, $targetData);
         }
-        /**
-         * Finally, throw an Info message to the user if EPUBCheck was not requested.
-         */
-        if (Girlfriend::comeToMe()->recall(name: "check-epub") === "no")
-            Girlfriend::comeToMe()->makeDoveCry($this->ebook, "epubNotChecked", $this->ebook->fileName);
     }
 
     /**
@@ -521,13 +506,13 @@ final class PaisleyPark
             if (!$this->inThisBedEyeScream()) exit;
             $errorLog = array_merge($errorLog, Girlfriend::comeToMe()->doveCries);
             Girlfriend::comeToMe()->silenceDoves();
-            $return = $this->theOpera->conductor($errorLog);
+            // $return = $this->theOpera->conductor($errorLog);
             if (!$this->inThisBedEyeScream()) exit; // error log already written into ePub, nothing to save here
         } catch (Throwable $e) {
             Girlfriend::comeToMe()->extraordinary(throwable: $e);
         }
         echo "READY." . PHP_EOL . PHP_EOL
             . sprintf("0 OK, %s:8%s", Girlfriend::comeToMe()->whereAmI()["line"], PHP_EOL);
-        return $return;
+        return true;
     }
 }

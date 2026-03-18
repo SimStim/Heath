@@ -1,6 +1,6 @@
 {
-  "name": "simstim/lea",
-  "description": "Lea EPUB Anvil - an opinionated EPUB 3.3 publishing engine that validates metadata, normalizes structure, resolves internal links, and supports script-driven content generation for reproducible ebook builds.",
+  "name": "simstim/heath",
+  "description": "Heath: Export Arx To Hugo",
   "type": "project",
   "license": "PolyForm-Noncommercial-1.0.0",
   "authors": [
@@ -31,7 +31,7 @@
     }
   },
   "bin": [
-    "lea.php"
+    "heath.php"
   ],
   "minimum-stability": "dev",
   "prefer-stable": true,

@@ -509,8 +509,6 @@ final class TheOpera
         $zip->close();
         echo "Successfully produced the ePub file: $epubFileName" . PHP_EOL;
         $timeStamp = new Date(modified: "now")->modified;
-        if (Girlfriend::comeToMe()->recall(name: "check-epub") === "yes")
-            $result = Girlfriend::comeToMe()->checkEpub($epubFileName);
         $zip->open($epubFileName);
         $zip->addFromString(name: "META-INF/lea-log.txt", content: $this->generateProductionLog(
             errorLog: $errorLog,
