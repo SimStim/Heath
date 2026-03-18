@@ -1,0 +1,19 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Lea;
+
+use Lea\Adore\Girlfriend;
+use Lea\Adore\PaisleyPark;
+
+define(constant_name: 'ROOT', value: dirname(path: __DIR__) . "/Lea");
+define(constant_name: 'REPO', value: realpath(path: ".") . "/arx/");
+require_once ROOT . "/vendor/autoload.php";
+
+Girlfriend::comeToMe()->parseArguments($argv);
+Girlfriend::comeToMe()->emotionalPump();
+Girlfriend::comeToMe()->myNameIsLea();
+
+$work = new PaisleyPark(fileName: $argv[1] ?? "");
+$work->pControl();

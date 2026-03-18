@@ -1,0 +1,42 @@
+{
+  "name": "simstim/lea",
+  "description": "Lea EPUB Anvil - an opinionated EPUB 3.3 publishing engine that validates metadata, normalizes structure, resolves internal links, and supports script-driven content generation for reproducible ebook builds.",
+  "type": "project",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "authors": [
+    {
+      "name": "Eduard Pech",
+      "email": "eduard.pech@logophilia.eu"
+    }
+  ],
+  "require": {
+    "php": "^8.5",
+    "ext-curl": "*",
+    "ext-dom": "*",
+    "ext-libxml": "*",
+    "ext-mbstring": "*",
+    "ext-zip": "*"
+  },
+  "require-dev": {
+    "sebastian/version": "^6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Lea\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Lea\\Tests\\": "tests/"
+    }
+  },
+  "bin": [
+    "lea.php"
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  }
+}
