@@ -4,40 +4,22 @@ declare(strict_types=1);
 
 namespace Lea;
 
-use FilesystemIterator;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
 use Lea\Adore\Fancy;
 use Lea\Adore\Girlfriend;
+use Lea\Adore\Heath;
 use Lea\Adore\PaisleyPark;
 
-define(constant_name: 'ROOT', value: dirname(path: __DIR__) . "/Lea");
+define(constant_name: 'ROOT', value: dirname(path: __DIR__) . "/Heath");
 define(constant_name: 'REPO', value: realpath(path: ".") . "/arx/");
 require_once ROOT . "/vendor/autoload.php";
 
-Girlfriend::comeToMe()->parseArguments($argv);
 Girlfriend::comeToMe()->emotionalPump();
 
-$heath = PHP_EOL . Fancy::BG_GREEN . Fancy::WHITE . Fancy::BOLD . " [ HEATH ] " . Fancy::RESET;
-
-// Find all .xml files in subfolders of REPO ("arx")
-$xmlFiles = [];
-if (!is_dir(REPO)) {
-    echo $heath . Fancy::BG_RED . Fancy::BLACK . Fancy::BLINK . " [ ERROR ] " . Fancy::UNBLINK
-        . Fancy::BG_WHITE . Fancy::BLACK . " Repository expected at "
-        . Fancy::RED . REPO . Fancy::BLACK . " was not found. " . Fancy::RESET . PHP_EOL;
-    exit;
-}
-$dir = new RecursiveDirectoryIterator(REPO, FilesystemIterator::SKIP_DOTS);
-$iterator = new RecursiveIteratorIterator($dir);
-foreach ($iterator as $file)
-    if ($file->isFile() && $iterator->getDepth() > 0 && strtolower($file->getExtension()) === 'xml')
-        $xmlFiles[] = substr($file->getPathname(), strlen(Girlfriend::$pathEbooks));
-
-// Process each file (replacing the original single file processing)
-foreach ($xmlFiles as $fileName) {
-    echo $heath . Fancy::BG_BLUE . " $fileName " . Fancy::RESET . PHP_EOL;
+$heath = new Heath();
+foreach ($heath->ebookFiles as $fileName) {
+    echo $heath->heathName . Fancy::BG_BLUE . " $fileName " . Fancy::RESET . PHP_EOL;
     Girlfriend::comeToMe()->myNameIsLea();
     $work = new PaisleyPark(fileName: $fileName);
     $work->pControl();
+    $heath->index($work);
 }

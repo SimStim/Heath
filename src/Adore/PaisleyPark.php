@@ -281,13 +281,6 @@ final class PaisleyPark
             $fatal = $fatal || ($msg->flaw === Flaw::Fatal);
             $infoOnly = $infoOnly && ($msg->flaw === Flaw::Info);
         }
-        if (!$infoOnly) {
-            echo Fancy::info(msg: "[ INFO ]") . "    shows potential for improvement. The produced EPUB may be less than ideal." . PHP_EOL;
-            echo Fancy::warning(msg: "[ WARNING ]") . " denotes missing optional data. The EPUB should not be published." . PHP_EOL;
-            echo Fancy::severe(msg: "[ SEVERE ]") . "  requires guessing from Lea. The EPUB must not be published." . PHP_EOL;
-            echo Fancy::fatal(msg: "[ FATAL ]") . "   cannot be resolved. No EPUB will be produced." . PHP_EOL;
-        }
-        echo PHP_EOL;
         return !$fatal;
     }
 
@@ -499,20 +492,12 @@ final class PaisleyPark
         try {
             $this->theOpera->theOverture();         // make sure we're laughing in the purple rain
             $this->segue();
-            if (!$this->inThisBedEyeScream()) exit;
-            $errorLog = Girlfriend::comeToMe()->doveCries;
-            Girlfriend::comeToMe()->silenceDoves();
             $this->seguePartTwo();
             if (!$this->inThisBedEyeScream()) exit;
-            $errorLog = array_merge($errorLog, Girlfriend::comeToMe()->doveCries);
             Girlfriend::comeToMe()->silenceDoves();
-            // $return = $this->theOpera->conductor($errorLog);
-            if (!$this->inThisBedEyeScream()) exit; // error log already written into ePub, nothing to save here
         } catch (Throwable $e) {
             Girlfriend::comeToMe()->extraordinary(throwable: $e);
         }
-        echo "READY." . PHP_EOL . PHP_EOL
-            . sprintf("0 OK, %s:8%s", Girlfriend::comeToMe()->whereAmI()["line"], PHP_EOL);
         return true;
     }
 }
