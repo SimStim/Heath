@@ -21,5 +21,5 @@ foreach ($heath->ebookFiles as $fileName) {
     Girlfriend::comeToMe()->myNameIsLea();
     $work = new PaisleyPark(fileName: $fileName);
     $work->pControl();
-    $heath->index($work);
+    $heath->makeIndex($work)->writeIndex();
 }

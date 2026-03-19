@@ -38,7 +38,7 @@ final class Girlfriend
         "subfolder-text" => "",
         "subfolder-images" => "",
     ];
-    private static array $characterTransliterationMap = [
+    public static array $characterTransliterationMap = [
         'á' => 'a', 'à' => 'a', 'â' => 'a', 'ã' => 'a', 'ä' => 'a', 'å' => 'a', 'Á' => 'A', 'À' => 'A',
         'Â' => 'A', 'Ã' => 'A', 'Ä' => 'A', 'Å' => 'A',
         'é' => 'e', 'è' => 'e', 'ê' => 'e', 'ë' => 'e', 'É' => 'E', 'È' => 'E', 'Ê' => 'E', 'Ë' => 'E',
@@ -335,11 +335,11 @@ final class Girlfriend
      */
     public function strToEpubIdentifier(string $string): string
     {
-        return str_replace(
-            search: self::$characterNonGrata,
-            replace: '-',
-            subject: strtr(strtolower(trim($string)), self::$characterTransliterationMap)
-        );
+        return $string
+                |> trim(...)
+                |> strtolower(...)
+                |> (fn($x) => strtr($x, self::$characterTransliterationMap))
+                |> (fn($x) => str_replace(search: self::$characterNonGrata, replace: '-', subject: $x));
     }
 
     /**
