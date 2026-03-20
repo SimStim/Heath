@@ -339,7 +339,7 @@ final class Girlfriend
                 |> trim(...)
                 |> strtolower(...)
                 |> (fn($x) => strtr($x, self::$characterTransliterationMap))
-                |> (fn($x) => str_replace(search: self::$characterNonGrata, replace: '-', subject: $x));
+                |> (fn($x) => str_replace(search: self::$characterNonGrata, replace: '', subject: $x));
     }
 
     /**
