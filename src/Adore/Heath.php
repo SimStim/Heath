@@ -207,6 +207,7 @@ class Heath
             }
             $output = "+++" . PHP_EOL . "draft = false" . PHP_EOL
                 . "title = '" . ($civilName !== "" ? $civilName : $author) . "'" . PHP_EOL
+                . "cross-reference-authors = ['" . $author . "']" . PHP_EOL
                 . "cross-reference-stories = [";
             $stories = "";
             if (isset($properties["stories"]))
