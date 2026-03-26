@@ -260,8 +260,8 @@ class Heath
             if (!is_dir(filename: $hugoStoriesDir))
                 mkdir(directory: $hugoStoriesDir, permissions: 0755, context: null);
             file_put_contents(
-                filename: $hugoStoriesDir
-                . Girlfriend::comeToMe()->strToEpubIdentifier($story) . ".html",
+                filename: $hugoStoriesDir . Girlfriend::comeToMe()->strToEpubIdentifier(
+                    string: $story . " " . $properties["authors"][0]) . ".html",
                 data: $output
             );
         }
