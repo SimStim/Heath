@@ -307,6 +307,11 @@ final class Affirmation
                 "message" => "Script 'linkedImage' is missing the missing the mandatory 'image' attribute.",
                 "suggestion" => "Add the attribute 'image'."
             ],
+            "lockedImageMissingImage" => [
+                "flaw" => Flaw::Fatal,
+                "message" => "Script 'lockedImage' is missing the missing the mandatory 'image' attribute.",
+                "suggestion" => "Add the attribute 'image'."
+            ],
             "multipleCaptions" => [
                 "flaw" => Flaw::Severe,
                 "message" => "Multiple captions defined in a DOM object I'm going to use the first definition.",

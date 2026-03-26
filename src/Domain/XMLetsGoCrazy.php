@@ -665,6 +665,29 @@ final class XMLetsGoCrazy
     }
 
     /**
+     * Replace <lea:subsection> tags with html.
+     * - <lea:subsection class="heading">The Pyramid of Bottles</lea:subsection>
+     * =>
+     * <h3 title="The Call from Beyond - The Pyramid of Bottles"
+     *     class="heading">The Pyramid of Bottles</h3>
+     *
+     * @param Text $text
+     * @return void
+     */
+    public static function replaceLeaSubSectionTags(Text $text): void
+    {
+        $nodes = $text->xpath->query(expression: "//lea:subsection");
+        foreach ($nodes as $node) {
+            $subSectionTitle = trim($node->textContent);
+            $class = $node->hasAttribute("class")
+                ? $node->getAttribute("class")
+                : "";
+            $replacement = "<h3 class='$class'>$subSectionTitle</h3>";
+            self::replaceNodeWithStringContent($node, $replacement);
+        }
+    }
+
+    /**
      * Replace <lea:script> tags with xhtml content by executing the names script.
      * - <lea:script>tableOfContents</lea:script>
      * Check AlphabetSt or Lea documentation for the list of available scripts.

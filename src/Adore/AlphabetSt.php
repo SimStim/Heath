@@ -35,6 +35,8 @@ class AlphabetSt
         "list blurbs" => "listBlurbs",
         "text blurbs" => "listBlurbs",
         "linked image" => "linkedImage",
+        "image" => "lockedImage",
+        "locked image" => "lockedImage",
         "list authors" => "listAuthors",
         "authors" => "listAuthors",
         "text authors" => "listAuthors",
@@ -186,6 +188,39 @@ class AlphabetSt
             . "<lea:link to='$to'>"
             . "<img src='../Images/$image' alt='$caption'/>"
             . "</lea:link>"
+            . "<figcaption>$caption</figcaption>"
+            . "</figure>";
+        $ebook->addImages([new Image(
+            fileName: trim($node->getAttribute(qualifiedName: "image")),
+            folder: $folder,
+            caption: $caption)]);
+        XMLetsGoCrazy::replaceNodeWithStringContent(node: $node, string: $replacement);
+    }
+
+    /**
+     * Processes an image node, generates a corresponding figure element with an image and caption,
+     * and replaces the original node in the DOM structure. Also adds the image to the ebook's image collection.
+     *
+     * @param DOMElement $node The DOM node that represents the image. This node should have attributes for the image file, caption, and folder.
+     * @param Ebook $ebook The ebook object to which the processed image and its metadata will be added.
+     * @return void
+     * @throws Exception
+     */
+    public function lockedImage(DOMElement $node, Ebook $ebook): void
+    {
+        if (!$node->hasAttribute(qualifiedName: "image")) {
+            Girlfriend::comeToMe()->makeDoveCry($ebook, "lockedImageMissingImage");
+            return;
+        }
+        $image = Girlfriend::comeToMe()->strToEpubImageFileName($node->getAttribute(qualifiedName: "image"));
+        $caption = $node->hasAttribute(qualifiedName: "caption")
+            ? $node->getAttribute(qualifiedName: "caption")
+            : Girlfriend::comeToMe()->recall(name: "defaultcaption");
+        $folder = $node->hasAttribute(qualifiedName: "folder")
+            ? trim(string: $node->getAttribute(qualifiedName: "folder"), characters: "/ ") . "/"
+            : Girlfriend::comeToMe()->recall(name: "subfolder-images");
+        $replacement = "<figure>"
+            . "<img src='../Images/$image' alt='$caption'/>"
             . "<figcaption>$caption</figcaption>"
             . "</figure>";
         $ebook->addImages([new Image(
